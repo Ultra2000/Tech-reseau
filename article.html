@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incoming & Outgoing Mail Server – Article</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #ffffff;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #0055ff;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .article-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .article-header img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      object-fit: cover;
+      max-height: 400px;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #0055ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.back:hover {
+      text-decoration: underline;
+    }
+
+    article p {
+      margin-bottom: 1.2rem;
+    }
+
+
+    @media(max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+    
+    }
+
+    footer {
+  background: #ffffff;
+  margin-top: 3rem;
+  padding: 3rem 1rem 1rem;
+  border-top: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #0055ff;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: #555;
+  text-decoration: none;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: underline;
+  color: #0055ff;
+}
+
+footer .copyright {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">TECH<span style="color: orange;">🧘</span>RESEAU</div>
+      <nav>
+        <a href="index.html">Blog</a>
+        <a href="#">YouTube</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ARTICLE -->
+  <div class="article-container">
+    <a href="index.html" class="back">← Retour au blog</a>
+
+    <div class="article-header">
+      <img src="https://img.freepik.com/free-vector/processing-center-server-room-rakcs-data-center-concept_39422-521.jpg?t=st=1746180669~exp=1746184269~hmac=7648c79c231d391522d5f665004bb9b232ab9f4ecdfc45a8c948015f57576188&w=826" alt="Serveur Mail">
+    </div>
+
+    <h1>Incoming and Outgoing Mail Server: Detailed Guide [2025]</h1>
+    <div class="meta">
+      <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Auteur">
+      Rahman Munna • 27 avril 2025 • 67 mins
+    </div>
+
+    <article>
+      <p>
+        Les serveurs de messagerie jouent un rôle essentiel dans la communication numérique moderne. Ce guide explore en profondeur les deux types fondamentaux : les serveurs de messagerie entrants (IMAP/POP3) et sortants (SMTP).
+      </p>
+      <p>
+        Un serveur entrant est responsable de la réception des emails. Il les stocke pour que l'utilisateur puisse les récupérer via des clients comme Outlook, Thunderbird ou des applications mobiles. Les deux protocoles les plus utilisés sont :
+      </p>
+      <ul>
+        <li><strong>POP3</strong> – télécharge les emails localement puis les supprime du serveur.</li>
+        <li><strong>IMAP</strong> – laisse les messages sur le serveur et synchronise entre plusieurs appareils.</li>
+      </ul>
+      <p>
+        Le serveur sortant (SMTP) est, quant à lui, en charge de l'envoi des messages. Il transmet les emails depuis un client vers un autre serveur de messagerie, où le destinataire pourra les consulter.
+      </p>
+      <p>
+        Ce guide aborde également :
+        <ul>
+          <li>La configuration client-serveur</li>
+          <li>La sécurité (SSL/TLS, authentification SMTP)</li>
+          <li>Les erreurs communes et leurs solutions</li>
+          <li>Des cas concrets et schémas visuels</li>
+        </ul>
+      </p>
+      <p>
+        En comprenant bien ces systèmes, vous serez capable de configurer un serveur de messagerie professionnel, sécurisé et fiable.
+      </p>
+    </article>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Tech&Réseau</h4>
+        <p>Un blog dédié aux technologies réseau, messagerie, et infrastructures modernes. 💻📡</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Réseaux sociaux</h4>
+        <ul>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Tech&Réseau — Tous droits réservés.
+    </div>
+  </footer>
+  
+
+</body>
+</html>

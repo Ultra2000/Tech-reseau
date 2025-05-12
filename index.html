@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog – Tech&Réseau</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f6f9fc;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      color: #0055ff;
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a.contact {
+      background: #0055ff;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 6px;
+    }
+
+    /* GRID ARTICLES */
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card .category {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #666;
+      padding: 0.8rem 1rem 0 1rem;
+      text-transform: uppercase;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin: 0.4rem 1rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      margin: 0.5rem 1rem 1rem;
+      color: #555;
+    }
+
+    .read-more {
+      color: #0055ff;
+      font-weight: bold;
+      margin: 0 1rem 1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+      color: #003acc;
+    }
+
+    .footer-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      padding: 1rem;
+    }
+
+    .footer-meta img {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+    }
+
+    @media(max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">TECH<span style="color: orange;">🧘</span>RESEAU</div>
+      <nav>
+        <a href="#">Blog</a>
+        <a href="#">YouTube</a>
+        <a href="#">About Us</a>
+        <a class="contact" href="#">Contact Us 📞</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- GRID ARTICLES -->
+  <div class="container">
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="https://img.freepik.com/free-vector/processing-center-server-room-rakcs-data-center-concept_39422-521.jpg?t=st=1746180669~exp=1746184269~hmac=7648c79c231d391522d5f665004bb9b232ab9f4ecdfc45a8c948015f57576188&w=826" alt="Mail Server">
+      <div class="category">MAIL SERVER</div>
+      <h2>Incoming and Outgoing Mail Server: Detailed Guide [2025]</h2>
+      <p>This is an in-depth guide on incoming and outgoing mail servers...</p>
+      <a href="article.html" class="read-more">Read More →</a>
+      <div class="footer-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <span>Rahman Munna</span> • 
+        <span>April 27, 2025</span> • 
+        <span>67 mins</span>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/backup-button-modern-server-room-background-data-loss-prevention-system-recovery_161452-9622.jpg?w=996" alt="Email Server">
+      <div class="category">MAIL SERVER</div>
+      <h2>Email Server Definitive Guide [2025]</h2>
+      <p>This is an in-depth guide on Email Servers, how they work, types and security practices.</p>
+      <a href="article.html" class="read-more">Read More →</a>
+      <div class="footer-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <span>Rahman Munna</span> • 
+        <span>March 18, 2025</span> • 
+        <span>72 mins</span>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/backup-button-modern-server-room-background-data-loss-prevention-system-recovery_161452-9622.jpg?w=996" alt="DNS Server">
+      <div class="category">DNS SERVER</div>
+      <h2>Linux DNS Server Configuration: Detailed Guide [2025]</h2>
+      <p>This is a SUPER detailed Linux DNS Server Configuration tutorial for 2025.</p>
+      <a href="article.html" class="read-more">Read More →</a>
+      <div class="footer-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <span>Rahman Munna</span> • 
+        <span>October 10, 2024</span> • 
+        <span>47 mins</span>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="https://img.freepik.com/free-vector/processing-center-server-room-rakcs-data-center-concept_39422-521.jpg?t=st=1746180669~exp=1746184269~hmac=7648c79c231d391522d5f665004bb9b232ab9f4ecdfc45a8c948015f57576188&w=826" alt="Mail Server">
+      <div class="category">MAIL SERVER</div>
+      <h2>Incoming and Outgoing Mail Server: Detailed Guide [2025]</h2>
+      <p>This is an in-depth guide on incoming and outgoing mail servers...</p>
+      <a href="article.html" class="read-more">Read More →</a>
+      <div class="footer-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <span>Rahman Munna</span> • 
+        <span>April 27, 2025</span> • 
+        <span>67 mins</span>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/backup-button-modern-server-room-background-data-loss-prevention-system-recovery_161452-9622.jpg?w=996" alt="Email Server">
+      <div class="category">MAIL SERVER</div>
+      <h2>Email Server Definitive Guide [2025]</h2>
+      <p>This is an in-depth guide on Email Servers, how they work, types and security practices.</p>
+      <a href="article.html" class="read-more">Read More →</a>
+      <div class="footer-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <span>Rahman Munna</span> • 
+        <span>March 18, 2025</span> • 
+        <span>72 mins</span>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+      <img src="https://img.freepik.com/premium-photo/backup-button-modern-server-room-background-data-loss-prevention-system-recovery_161452-9622.jpg?w=996" alt="DNS Server">
+      <div class="category">DNS SERVER</div>
+      <h2>Linux DNS Server Configuration: Detailed Guide [2025]</h2>
+      <p>This is a SUPER detailed Linux DNS Server Configuration tutorial for 2025.</p>
+      <a href="article.html" class="read-more">Read More →</a>
+      <div class="footer-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <span>Rahman Munna</span> • 
+        <span>October 10, 2024</span> • 
+        <span>47 mins</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
