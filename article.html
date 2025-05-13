@@ -14,17 +14,18 @@
     <div class="header-container">
       <a href="index.html" class="logo">
         <span>TECH</span>
-        <span class="emoji">🧘</span>
+        <span class="emoji">🚀</span>
         <span>RESEAU</span>
       </a>
       <button class="menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
       </button>
       <nav id="mainNav">
-        <a href="index.html">Blog</a>
-        <a href="#">YouTube</a>
-        <a href="#">About Us</a>
-        <a class="contact" href="#">Contact Us 📞</a>
+        <a href="index.html">Accueil</a>
+        <a href="articles.html">Articles</a>
+        <a href="ressources.html">Ressources</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html" class="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -372,25 +373,46 @@ sudo apt install postfix dovecot-imapd dovecot-pop3d</code></pre>
     const mainNav = document.getElementById('mainNav');
     const menuOverlay = document.getElementById('menuOverlay');
 
-    menuToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('active');
-      menuOverlay.classList.toggle('active');
-      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
-    });
+    function openMenu() {
+      mainNav.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-    menuOverlay.addEventListener('click', () => {
+    function closeMenu() {
       mainNav.classList.remove('active');
       menuOverlay.classList.remove('active');
       document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mainNav.classList.contains('active')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    // Close menu when clicking a link
+    menuOverlay.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeMenu();
+    });
+
+    // Gestion des liens du menu
     mainNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mainNav.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
+      link.addEventListener('click', (e) => {
+        // Ne pas fermer le menu si le lien est le même que la page actuelle
+        if (link.getAttribute('href') === window.location.pathname) {
+          e.preventDefault();
+          closeMenu();
+        }
       });
+    });
+
+    // Empêcher la fermeture du menu lors du clic à l'intérieur
+    mainNav.addEventListener('click', (e) => {
+      e.stopPropagation();
     });
   </script>
 </body>
