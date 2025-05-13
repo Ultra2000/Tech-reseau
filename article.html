@@ -1,250 +1,397 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Incoming & Outgoing Mail Server – Article</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #ffffff;
-      color: #333;
-      line-height: 1.7;
-    }
-
-    header {
-      background: #fff;
-      padding: 1rem 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #0055ff;
-    }
-
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    .article-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .article-header img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1.5rem;
-      object-fit: cover;
-      max-height: 400px;
-    }
-
-    .meta {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 1.5rem;
-    }
-
-    .meta img {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    a.back {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: #0055ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a.back:hover {
-      text-decoration: underline;
-    }
-
-    article p {
-      margin-bottom: 1.2rem;
-    }
-
-
-    @media(max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
-      }
-
-    
-    }
-
-    footer {
-  background: #ffffff;
-  margin-top: 3rem;
-  padding: 3rem 1rem 1rem;
-  border-top: 1px solid #eee;
-  font-size: 0.95rem;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-}
-
-.footer-col h4 {
-  font-size: 1.1rem;
-  margin-bottom: 0.8rem;
-  color: #0055ff;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-col ul li a {
-  color: #555;
-  text-decoration: none;
-}
-
-.footer-col ul li a:hover {
-  text-decoration: underline;
-  color: #0055ff;
-}
-
-footer .copyright {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  color: #888;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-  }
-}
-
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guide Complet : Configuration d'un Serveur Mail Professionnel en 2024 – Tech&Réseau</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="article.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <div class="logo">TECH<span style="color: orange;">🧘</span>RESEAU</div>
-      <nav>
+      <a href="index.html" class="logo">
+        <span>TECH</span>
+        <span class="emoji">🧘</span>
+        <span>RESEAU</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="mainNav">
         <a href="index.html">Blog</a>
         <a href="#">YouTube</a>
         <a href="#">About Us</a>
-        <a href="#">Contact</a>
+        <a class="contact" href="#">Contact Us 📞</a>
       </nav>
     </div>
   </header>
 
-  <!-- ARTICLE -->
-  <div class="article-container">
-    <a href="index.html" class="back">← Retour au blog</a>
+  <div class="menu-overlay" id="menuOverlay"></div>
 
+  <!-- TABLE OF CONTENTS -->
+  <nav class="toc">
+    <h3>Table des matières</h3>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#prerequis">Prérequis</a></li>
+      <li><a href="#installation">Installation des composants</a></li>
+      <li><a href="#configuration">Configuration de Postfix</a></li>
+      <li><a href="#securisation">Sécurisation</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <!-- ARTICLE CONTENT -->
+  <article class="article-container">
     <div class="article-header">
-      <img src="https://img.freepik.com/free-vector/processing-center-server-room-rakcs-data-center-concept_39422-521.jpg?t=st=1746180669~exp=1746184269~hmac=7648c79c231d391522d5f665004bb9b232ab9f4ecdfc45a8c948015f57576188&w=826" alt="Serveur Mail">
-    </div>
-
-    <h1>Incoming and Outgoing Mail Server: Detailed Guide [2025]</h1>
-    <div class="meta">
-      <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Auteur">
-      Rahman Munna • 27 avril 2025 • 67 mins
-    </div>
-
-    <article>
-      <p>
-        Les serveurs de messagerie jouent un rôle essentiel dans la communication numérique moderne. Ce guide explore en profondeur les deux types fondamentaux : les serveurs de messagerie entrants (IMAP/POP3) et sortants (SMTP).
-      </p>
-      <p>
-        Un serveur entrant est responsable de la réception des emails. Il les stocke pour que l'utilisateur puisse les récupérer via des clients comme Outlook, Thunderbird ou des applications mobiles. Les deux protocoles les plus utilisés sont :
-      </p>
-      <ul>
-        <li><strong>POP3</strong> – télécharge les emails localement puis les supprime du serveur.</li>
-        <li><strong>IMAP</strong> – laisse les messages sur le serveur et synchronise entre plusieurs appareils.</li>
-      </ul>
-      <p>
-        Le serveur sortant (SMTP) est, quant à lui, en charge de l'envoi des messages. Il transmet les emails depuis un client vers un autre serveur de messagerie, où le destinataire pourra les consulter.
-      </p>
-      <p>
-        Ce guide aborde également :
-        <ul>
-          <li>La configuration client-serveur</li>
-          <li>La sécurité (SSL/TLS, authentification SMTP)</li>
-          <li>Les erreurs communes et leurs solutions</li>
-          <li>Des cas concrets et schémas visuels</li>
-        </ul>
-      </p>
-      <p>
-        En comprenant bien ces systèmes, vous serez capable de configurer un serveur de messagerie professionnel, sécurisé et fiable.
-      </p>
-    </article>
-  </div>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h4>Tech&Réseau</h4>
-        <p>Un blog dédié aux technologies réseau, messagerie, et infrastructures modernes. 💻📡</p>
+      <div class="article-category">MAIL SERVER</div>
+      <h1 class="article-title">Guide Complet : Configuration d'un Serveur Mail Professionnel en 2024</h1>
+      <div class="article-meta">
+        <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author">
+        <div class="article-meta-info">
+          <span class="article-author">Rahman Munna</span>
+          <span class="article-date">27 Avril 2024 • 15 min de lecture</span>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#">Accueil</a></li>
+    </div>
+
+    <div class="article-image">
+      <img src="https://img.freepik.com/free-vector/processing-center-server-room-rakcs-data-center-concept_39422-521.jpg" alt="Mail Server Configuration">
+    </div>
+
+    <div class="article-content">
+      <h2 id="introduction">Introduction</h2>
+      <p>La configuration d'un serveur mail professionnel est une étape cruciale pour toute entreprise souhaitant gérer ses communications électroniques de manière autonome et sécurisée. Ce guide vous accompagnera à travers toutes les étapes nécessaires pour mettre en place un serveur mail robuste et fiable.</p>
+
+      <h2 id="prerequis">Prérequis</h2>
+      <ul>
+        <li>Un serveur dédié ou VPS avec Linux</li>
+        <li>Un nom de domaine valide</li>
+        <li>Des enregistrements DNS configurés</li>
+        <li>Une connexion internet stable</li>
+      </ul>
+
+      <h2 id="installation">Installation des composants</h2>
+      <p>Nous allons utiliser Postfix comme serveur SMTP et Dovecot pour IMAP/POP3. Voici les commandes d'installation :</p>
+      <pre><code>sudo apt update
+sudo apt install postfix dovecot-imapd dovecot-pop3d</code></pre>
+
+      <h2 id="configuration">Configuration de Postfix</h2>
+      <p>La configuration de Postfix nécessite plusieurs étapes :</p>
+      <ol>
+        <li>Configuration du nom d'hôte</li>
+        <li>Paramétrage des certificats SSL/TLS</li>
+        <li>Configuration des filtres anti-spam</li>
+      </ol>
+
+      <h2 id="securisation">Sécurisation</h2>
+      <p>La sécurité est primordiale pour un serveur mail. Voici les points essentiels à mettre en place :</p>
+      <ul>
+        <li>Configuration de SPF</li>
+        <li>Mise en place de DKIM</li>
+        <li>Configuration de DMARC</li>
+        <li>Protection contre les attaques par force brute</li>
+      </ul>
+
+      <h2 id="conclusion">Conclusion</h2>
+      <p>La configuration d'un serveur mail professionnel demande du temps et de l'attention aux détails, mais les avantages en termes de contrôle et de sécurité en valent la peine.</p>
+    </div>
+
+    <!-- ARTICLE NAVIGATION -->
+    <div class="article-navigation">
+      <a href="#" class="nav-link prev">
+        <i class="fas fa-arrow-left"></i>
+        <div>
+          <span>Article précédent</span>
+          <div>Configuration DNS</div>
+        </div>
+      </a>
+      <a href="#" class="nav-link next">
+        <div>
+          <span>Article suivant</span>
+          <div>Sécurisation avancée</div>
+        </div>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <div class="related-articles">
+      <h3>Articles similaires</h3>
+      <div class="related-grid">
+        <a href="#" class="related-card">
+          <img src="https://img.freepik.com/free-vector/server-room-rack-illustration_107791-1783.jpg" alt="DNS Server">
+          <div class="related-card-content">
+            <h4>Configuration DNS</h4>
+            <p>Guide complet pour configurer votre serveur DNS</p>
+          </div>
+        </a>
+        <a href="#" class="related-card">
+          <img src="https://img.freepik.com/free-vector/cyber-security-concept-illustration_114360-1632.jpg" alt="Security">
+          <div class="related-card-content">
+            <h4>Sécurisation avancée</h4>
+            <p>Protégez votre serveur mail contre les attaques</p>
+          </div>
+        </a>
+        <a href="#" class="related-card">
+          <img src="https://img.freepik.com/free-vector/server-room-illustration_107791-1784.jpg" alt="Backup">
+          <div class="related-card-content">
+            <h4>Sauvegarde et restauration</h4>
+            <p>Stratégies de backup pour votre serveur mail</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- COMMENTS SECTION -->
+    <div class="comments-section">
+      <h3>Commentaires</h3>
+      
+      <!-- Comment Form -->
+      <form class="comment-form">
+        <textarea placeholder="Partagez votre expérience ou posez une question..."></textarea>
+        <div class="form-row">
+          <input type="text" placeholder="Votre nom" required>
+          <input type="email" placeholder="Votre email" required>
+        </div>
+        <button type="submit">Publier le commentaire</button>
+      </form>
+
+      <!-- Comments List -->
+      <div class="comments-list">
+        <!-- Main Comment -->
+        <div class="comment">
+          <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="User Avatar" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-author">Jean Dupont</span>
+              <span class="comment-date">Il y a 2 jours</span>
+            </div>
+            <p class="comment-text">Excellent article ! J'ai suivi vos instructions pour configurer mon serveur mail et tout fonctionne parfaitement. Une petite question : quelle est la fréquence recommandée pour les sauvegardes ?</p>
+            <div class="comment-actions">
+              <a href="#" class="comment-action">
+                <i class="fas fa-thumbs-up"></i>
+                <span>12</span>
+              </a>
+              <a href="#" class="comment-action">
+                <i class="fas fa-reply"></i>
+                <span>Répondre</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reply -->
+        <div class="comment-replies">
+          <div class="comment">
+            <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="Author Avatar" class="comment-avatar">
+            <div class="comment-content">
+              <div class="comment-header">
+                <span class="comment-author">Rahman Munna</span>
+                <span class="comment-date">Il y a 1 jour</span>
+              </div>
+              <p class="comment-text">Merci pour votre retour positif ! Pour les sauvegardes, je recommande une sauvegarde quotidienne complète et des sauvegardes incrémentales toutes les 6 heures. Cela permet de minimiser la perte de données en cas de problème.</p>
+              <div class="comment-actions">
+                <a href="#" class="comment-action">
+                  <i class="fas fa-thumbs-up"></i>
+                  <span>5</span>
+                </a>
+                <a href="#" class="comment-action">
+                  <i class="fas fa-reply"></i>
+                  <span>Répondre</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Another Comment -->
+        <div class="comment">
+          <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=64" alt="User Avatar" class="comment-avatar">
+          <div class="comment-content">
+            <div class="comment-header">
+              <span class="comment-author">Marie Martin</span>
+              <span class="comment-date">Il y a 3 jours</span>
+            </div>
+            <p class="comment-text">Je rencontre un problème avec la configuration de DKIM. Le guide est très clair mais je n'arrive pas à faire fonctionner la vérification. Quelqu'un pourrait-il m'aider ?</p>
+            <div class="comment-actions">
+              <a href="#" class="comment-action">
+                <i class="fas fa-thumbs-up"></i>
+                <span>3</span>
+              </a>
+              <a href="#" class="comment-action">
+                <i class="fas fa-reply"></i>
+                <span>Répondre</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-footer">
+      <div class="article-tags">
+        <span class="tag">Mail Server</span>
+        <span class="tag">Postfix</span>
+        <span class="tag">Dovecot</span>
+        <span class="tag">Sécurité</span>
+      </div>
+      <div class="article-share">
+        <h3>Partager cet article</h3>
+        <div class="share-buttons">
+          <a href="#" class="share-button">Twitter</a>
+          <a href="#" class="share-button">LinkedIn</a>
+          <a href="#" class="share-button">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- BACK TO TOP BUTTON -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>À propos</h3>
+        <p style="color: var(--muted-text);">TECH🧘RESEAU est votre source d'informations sur les technologies et les réseaux. Nous partageons des guides, tutoriels et actualités pour vous aider à maîtriser ces domaines.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
           <li><a href="#">Articles</a></li>
+          <li><a href="#">Catégories</a></li>
           <li><a href="#">À propos</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Réseaux sociaux</h4>
-        <ul>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Twitter</a></li>
+
+      <div class="footer-section">
+        <h3>Catégories</h3>
+        <ul class="footer-links">
+          <li><a href="#">Mail Server</a></li>
+          <li><a href="#">DNS Server</a></li>
+          <li><a href="#">Sécurité</a></li>
+          <li><a href="#">Réseaux</a></li>
+          <li><a href="#">Tutoriels</a></li>
         </ul>
       </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p style="color: var(--muted-text);">Restez informé de nos derniers articles et tutoriels.</p>
+        <form style="margin-top: 1rem;">
+          <input type="email" placeholder="Votre email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg); color: var(--text-color); margin-bottom: 0.5rem;">
+          <button type="submit" style="width: 100%; padding: 0.8rem; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer;">S'abonner</button>
+        </form>
+      </div>
     </div>
-    <div class="copyright">
-      © 2025 Tech&Réseau — Tous droits réservés.
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 TECH🧘RESEAU. Tous droits réservés.</p>
     </div>
   </footer>
-  
 
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    // Table of contents active link
+    const tocLinks = document.querySelectorAll('.toc a');
+    const sections = document.querySelectorAll('.article-content h2');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+      document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    menuOverlay.addEventListener('click', () => {
+      mainNav.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Close menu when clicking a link
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 </body>
 </html>

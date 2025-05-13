@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rahman Munna - Auteur TECH🧘RESEAU</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* Author Profile Styles */
+    .author-header {
+      background: var(--card-bg);
+      padding: 4rem 0;
+      margin-bottom: 3rem;
+      box-shadow: var(--card-shadow);
+    }
+
+    .author-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .author-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary-color);
+      box-shadow: var(--card-shadow);
+    }
+
+    .author-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .author-title {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .author-bio {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted-text);
+      margin-bottom: 2rem;
+    }
+
+    .author-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--muted-text);
+    }
+
+    .author-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-link {
+      color: var(--muted-text);
+      font-size: 1.5rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-link:hover {
+      color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    .author-articles {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .author-articles h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+    }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .article-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .article-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .article-card-content {
+      padding: 1.5rem;
+    }
+
+    .article-card .category {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--muted-text);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .article-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .article-card p {
+      font-size: 0.95rem;
+      color: var(--muted-text);
+      margin-bottom: 1rem;
+    }
+
+    .article-card .read-more {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .article-card .read-more:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .author-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .author-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+      }
+
+      .author-stats {
+        justify-content: center;
+      }
+
+      .author-social {
+        justify-content: center;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span>TECH</span>
+        <span class="emoji">🧘</span>
+        <span>RESEAU</span>
+      </a>
+      <nav>
+        <a href="index.html">Blog</a>
+        <a href="#">YouTube</a>
+        <a href="#">About Us</a>
+        <a class="contact" href="#">Contact Us 📞</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- AUTHOR PROFILE -->
+  <section class="author-header">
+    <div class="author-container">
+      <img src="https://secure.gravatar.com/avatar/4e3bcf135c8eddf13b7aa26e7a6a4327?s=300" alt="Rahman Munna" class="author-image">
+      <div class="author-info">
+        <h1>Rahman Munna</h1>
+        <div class="author-title">Expert en Infrastructure & Sécurité</div>
+        <p class="author-bio">
+          Passionné par les technologies et les réseaux, je partage mon expertise sur la configuration et la sécurisation des serveurs. 
+          Avec plus de 10 ans d'expérience dans le domaine, je m'efforce de rendre les concepts techniques accessibles à tous.
+        </p>
+        <div class="author-stats">
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Articles</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">10k+</div>
+            <div class="stat-label">Lecteurs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Années d'expérience</div>
+          </div>
+        </div>
+        <div class="author-social">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHOR ARTICLES -->
+  <section class="author-articles">
+    <h2>Articles de Rahman Munna</h2>
+    <div class="articles-grid">
+      <!-- Article 1 -->
+      <article class="article-card">
+        <img src="https://img.freepik.com/free-vector/processing-center-server-room-rakcs-data-center-concept_39422-521.jpg" alt="Mail Server">
+        <div class="article-card-content">
+          <div class="category">MAIL SERVER</div>
+          <h3>Guide Complet : Configuration d'un Serveur Mail Professionnel en 2024</h3>
+          <p>Découvrez comment configurer un serveur mail professionnel étape par étape. Ce guide complet couvre l'installation, la configuration et la sécurisation.</p>
+          <a href="article.html" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="article-card">
+        <img src="https://img.freepik.com/free-vector/server-room-rack-illustration_107791-1783.jpg" alt="DNS Server">
+        <div class="article-card-content">
+          <div class="category">DNS SERVER</div>
+          <h3>Configuration DNS : Guide Pratique</h3>
+          <p>Apprenez à configurer votre serveur DNS pour une meilleure performance et sécurité. Guide étape par étape avec exemples pratiques.</p>
+          <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="article-card">
+        <img src="https://img.freepik.com/free-vector/cyber-security-concept-illustration_114360-1632.jpg" alt="Security">
+        <div class="article-card-content">
+          <div class="category">SÉCURITÉ</div>
+          <h3>Sécurisation Avancée des Serveurs</h3>
+          <p>Les meilleures pratiques pour protéger vos serveurs contre les attaques. Guide complet sur la sécurité des infrastructures.</p>
+          <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="article-card">
+        <img src="https://img.freepik.com/free-vector/server-room-illustration_107791-1784.jpg" alt="Backup">
+        <div class="article-card-content">
+          <div class="category">BACKUP</div>
+          <h3>Stratégies de Sauvegarde Efficaces</h3>
+          <p>Guide complet pour mettre en place un système de backup robuste. Protégez vos données avec les meilleures pratiques.</p>
+          <a href="#" class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- THEME TOGGLE -->
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- BACK TO TOP -->
+  <a href="#" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>À propos</h3>
+        <p style="color: var(--muted-text);">TECH🧘RESEAU est votre source d'informations sur les technologies et les réseaux. Nous partageons des guides, tutoriels et actualités pour vous aider à maîtriser ces domaines.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">Catégories</a></li>
+          <li><a href="#">À propos</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Catégories</h3>
+        <ul class="footer-links">
+          <li><a href="#">Mail Server</a></li>
+          <li><a href="#">DNS Server</a></li>
+          <li><a href="#">Sécurité</a></li>
+          <li><a href="#">Réseaux</a></li>
+          <li><a href="#">Tutoriels</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p style="color: var(--muted-text);">Restez informé de nos derniers articles et tutoriels.</p>
+        <form style="margin-top: 1rem;">
+          <input type="email" placeholder="Votre email" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--card-bg); color: var(--text-color); margin-bottom: 0.5rem;">
+          <button type="submit" style="width: 100%; padding: 0.8rem; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer;">S'abonner</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 TECH🧘RESEAU. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html> 
